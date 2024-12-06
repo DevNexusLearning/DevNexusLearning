@@ -31,7 +31,7 @@ body {
 }
 
 .search-box {
-    display: flex;
+    display: flex;  
     align-items: center;
     background-color: white;
     border: 3px solid #55d0ff;
@@ -40,15 +40,16 @@ body {
     padding: 5px 10px;
     width: 450px;
     margin: 0 10px;
-    flex-grow: 1;                  
+    flex-grow: 1;            
+    position: relative;      
 }
 
 .search-box input[type="text"] {
-    flex: 1;                       
+    flex-grow: 1;                  
     border: none;                  
     outline: none;                 
     background: transparent;       
-    padding: 5px;                 
+    padding: 8px 10px;                 
     font-size: 16px;              
     color: #55d0ff;   
 }
@@ -62,7 +63,40 @@ body {
     cursor: pointer;
     color: #55d0ff;
 }
+.search-dropdown {
+    max-height: 300px; /* Allow the dropdown to expand fully */
+    height: auto;
+    overflow-y: auto; /* Adds scrolling if content exceeds height */
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Positioned just below the search box */
+    left: 0;
+    width: 100%;
+    background-color: rgba(204, 249, 255, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Applies blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For WebKit-based browsers */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better visibility */
+    border-radius: 8px; /* Smooth edges */
+    z-index: 999;
+    padding: 10px 0;
+}
 
+.search-dropdown.show {
+    display: block; /* Visible when the "show" class is added */
+}
+
+.search-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color:#004aad;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.search-dropdown a:hover {
+    background-color: #55d0ff;
+    color: white;
+}
 .NAVIGATION i {
     margin: 0 10px;
     font-size: 30px;
@@ -596,3 +630,5 @@ button[type="submit"]:hover {
 .register a:hover {
     text-decoration: underline;
 }
+
+
